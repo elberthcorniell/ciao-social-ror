@@ -1,6 +1,10 @@
-# Scaffold for social media app with Ruby on Rails
+# Ciao! - The free speech social network
+ A free social metwork for sharing ideas without limitations
 
-> This repo includes intial code for social media app with basic styling. Its purpose is to be a starting point for Microverse students.
+![Vectores de personas](./public/images/banner.png) <br>
+<a href='https://www.freepik.es/vectores/personas'>Vector de Personas creado por pikisuperstar - www.freepik.es</a>
+
+<!-- otro banner: https://www.freepik.es/vector-gratis/grupo-personas-socializando-varios-idiomas_6296241.htm -->
 
 ## Built With
 
