@@ -1,6 +1,6 @@
 <section class="user-section">
-  <h2><%= "Name: #{@user.name}" %></h2>
-  <%= link_to "Follow", destroy_user_session_url, method: :post %>
+  <h2><%= @user.name %></h2>
+  <%= render partial: 'users/friend_btn' %>
   <article class="timeline">
     <h3>Recent posts:</h3>
     <ul class="posts">
