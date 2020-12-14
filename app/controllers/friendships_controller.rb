@@ -12,4 +12,16 @@ class FriendshipsController < ApplicationController
         format.html { redirect_to user_url(id: params[:friend_id]) }
     end
 
+    def update
+        @friendship = Friendship.find(params[:id])
+        @friendship.update(status: true)
+        format.html { redirect_to friendships_path }
+    end
+
+    def destroy
+        @friendship = Friendship.find(params[:id])
+        @friendship.destroy
+        format.html { redirect_to friendships_path }
+    end
+
 end

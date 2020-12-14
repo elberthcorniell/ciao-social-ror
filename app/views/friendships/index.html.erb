@@ -2,7 +2,13 @@
 <h1>Friend requests</h1>
 <ul>
     <% @requests.each do |f| %>
-        <li><%= f.user.name %><%= link_to "Accept", class: "btn"  %><%= link_to "Decline", class: "btn-decline" %><li>
+        <li class="for-btn">
+            <strong><%= f.user.name %></strong>
+            <div>
+                <%= link_to "Accept", friendship_url(id: f.id), method: :patch, class: "btn" %>
+                <%= link_to "Decline", friendship_url(id: f.id), method: :delete, class: "btn decline" %>
+            </div>
+        </li>
     <% end %>
 </ul>
 <% end %>
