@@ -95,3 +95,7 @@ TBA
 
 TBA
 
+
+`
+rails db:create  db:migrate RAILS_ENV=development
+`
