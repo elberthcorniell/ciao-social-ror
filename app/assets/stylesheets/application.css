@@ -53,3 +53,8 @@ li.for-btn > strong {
 .btn.decline {
     background-color: #a1a1a1;
 }
+
+.space-between {
+    display: flex;
+    justify-content: space-between;
+}

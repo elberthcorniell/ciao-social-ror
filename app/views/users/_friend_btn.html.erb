@@ -1,8 +1,7 @@
-<% if current_user.id.to_i != params[:id].to_i %>
-    <% friend = current_user.friend? params[:id] %>
-    <% if friend == false %>
-        <%= link_to "Follow", friendships_url(friend_id: params[:id]), method: :post %>
-    <% elsif friend == nil %>
+<% if @is_me %>
+    <% if @friend == false %>
+        <%= link_to "Follow", friendships_url(friend_id: params[:id]), method: :post, class: "btn" %>
+    <% elsif @friend == nil %>
         Pending
     <% else%>
         Friends

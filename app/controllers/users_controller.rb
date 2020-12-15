@@ -7,7 +7,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    puts @user.friend? 1
+    @is_me = current_user.id.to_i != params[:id].to_i
+    @friend = current_user.friend? params[:id]
     @posts = @user.posts.ordered_by_most_recent
   end
 end
