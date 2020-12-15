@@ -75,7 +75,17 @@ TBA
 
 ## Authors
 
-TBA
+👤 **Elbert Corniel**
+
+- GitHub: [@elberthcorniell](https://github.com/elberthcorniell)
+- Twitter: [@elberthcorniell](https://twitter.com/elberthcorniell)
+- LinkedIn: [Elbert Corniell](https://www.linkedin.com/in/elbert-corniell-989183159/)
+
+👤 **Devkc**
+
+- Github: [@cvilla714](https://github.com/cvilla714)
+- Twitter: [@kckeyti](https://twitter.com/kckeyti)
+- LinkedIn: [Cosmel Villalobos](https://www.linkedin.com/in/cosvilla/)
 
 ## 🤝 Contributing
 
