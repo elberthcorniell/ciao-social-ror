@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :friendships
-  has_many :inverted_friendships, class_name: "Friendship", foreign_key: "friend_id"
+  has_many :inverted_friendships, class_name: 'Friendship', foreign_key: 'friend_id'
 
   def friends
     friend = Friendship.select("(CASE WHEN user_id = #{self[:id]} THEN friend_id ELSE user_id END) AS user_id, status")

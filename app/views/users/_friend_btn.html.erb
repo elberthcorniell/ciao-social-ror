@@ -1,9 +1,1 @@
-<% if @is_me %>
-    <% if @friend == false %>
-        <%= link_to "Follow", friendships_url(friend_id: params[:id]), method: :post, class: "btn" %>
-    <% elsif @friend == nil %>
-        Pending
-    <% else%>
-        Friends
-    <% end %>
-<% end %>
+<%= follow_btn %>

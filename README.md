@@ -63,6 +63,22 @@ Open `http://localhost:3000/` in your browser.
 
 ### Run tests
 
+For testing please escute the next steps:
+
+- Execute the following code on the terminal to get the Gems needed:
+
+```
+    bundle install
+```
+
+- Make sure to have the testing database running:
+
+```
+    rails db:create db:migrate RAILS_ENV=test
+```
+
+- Run the test with the following command:
+
 ```
     rpsec --format documentation
 ```
@@ -104,8 +120,3 @@ TBA
 ## 📝 License
 
 TBA
-
-
-`
-rails db:create  db:migrate RAILS_ENV=development
-`

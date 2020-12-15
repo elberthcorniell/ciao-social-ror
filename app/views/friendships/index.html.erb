@@ -1,20 +1,5 @@
-<% if !@requests.empty? %>
-<h1>Friend requests</h1>
-<ul>
-    <% @requests.each do |f| %>
-        <li class="for-btn">
-            <strong><%= f.user.name %></strong>
-            <div>
-                <%= link_to "Accept", friendship_url(id: f.id), method: :patch, class: "btn" %>
-                <%= link_to "Decline", friendship_url(id: f.id), method: :delete, class: "btn decline" %>
-            </div>
-        </li>
-    <% end %>
-</ul>
-<% end %>
+<%= render_requests %>
 <h1>Friends</h1>
 <ul>
-    <% @friends.each do |f| %>
-        <li><%= f.user.name %><%= f.status ? '': ', pending' %><li>
-    <% end %>
+    <%= list_friends %>
 </ul>
