@@ -4,7 +4,7 @@ RSpec.describe 'Friendship', type: :model do
   it 'will check for creating the friendship' do
     d = User.create!(email: 'test1@gmail.com', name: 'moon', password: '123456')
     b = User.create!(email: 'test2@gmail.com', name: 'sun', password: '234567')
-    v = Friendship.create!(user_id: d.id, friend_id: b.id)
+    Friendship.create!(user_id: d.id, friend_id: b.id)
     expect(Friendship.find([d.id, b.id])).to be_valid
   end
 end

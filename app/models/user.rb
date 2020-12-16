@@ -11,13 +11,13 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :friendships
   has_many :inverted_friendships, class_name: 'Friendship', foreign_key: 'friend_id'
-  
+
   def friends
-    Friendship.where(['user_id = ?', self[:id] ])
+    Friendship.where(['user_id = ?', self[:id]])
   end
-  
+
   def friends_without_status
-    Friendship.select(:friend_id).where(['user_id = ?', self[:id] ])
+    Friendship.select(:friend_id).where(['user_id = ?', self[:id]])
   end
 
   def requests
@@ -27,6 +27,7 @@ class User < ApplicationRecord
   def friend?(user_id)
     friend = Friendship.select(:status).where("(friend_id = #{self[:id]} AND user_id = #{user_id})")
     return false if friend.empty?
+
     friend.first.status
   end
 end
