@@ -38,3 +38,16 @@ RSpec.feature 'Form for Sign Up', type: :feature do
     end
   end
 end
+
+RSpec.feature 'Forms field for password', type: :feature do
+  context 'doesn not show the right content' do
+    scenario 'should not able to see the Welcome message.' do
+      visit cancel_user_registration_path
+      within('form') do
+        fill_in 'Password', with: '123456'
+      end
+      click_button 'Sign up'
+      expect(page).to_not have_content 'Welcome! You have signed up successfully.'
+    end
+  end
+end

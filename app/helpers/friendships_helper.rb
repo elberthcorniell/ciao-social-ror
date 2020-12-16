@@ -1,17 +1,17 @@
 module FriendshipsHelper
   def follow_btn(id = nil, is_me = false)
     out = ''
-    friend = current_user.friend? (id || params[:id])
+    friend = current_user.friend?(id || params[:id])
     if is_me || @is_me
-      out <<  if current_user.request? (id || params[:id])
-                accept_decline(id || params[:id])
-              elsif friend == false
+      out << if current_user.request?(id || params[:id])
+               accept_decline(id || params[:id])
+             elsif friend == false
                link_to('Follow', friendships_url(friend_id: (id || params[:id])), method: :post, class: 'btn')
-              elsif friend.nil?
+             elsif friend.nil?
                'Pending'
-              else
+             else
                'Friends'
-              end
+             end
     end
     out.html_safe
   end
@@ -58,17 +58,16 @@ module FriendshipsHelper
 
   def render_all_users
     out = ''
-    out << "<ul class=\"users-list\">"
-      @users.each do |user|
-        if user.id != current_user.id
-        out << "<li class=\"space-between\">
+    out << '<ul class="users-list">'
+    @users.each do |user|
+      next unless user.id != current_user.id
+
+      out << "<li class=\"space-between\">
                 <strong>#{link_to user.name, user_path(id: user.id)}</strong>
                 <div>#{follow_btn(user.id, true)}</div>
               </li>"
-        end
-      end
-    out << "</ul>"
+    end
+    out << '</ul>'
     out.html_safe
   end
-
 end

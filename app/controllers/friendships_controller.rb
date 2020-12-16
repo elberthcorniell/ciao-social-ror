@@ -12,7 +12,7 @@ class FriendshipsController < ApplicationController
     redirect_to user_url(id: params[:friend_id])
   end
 
-  def update    
+  def update
     @friendship = current_user.friendships.build(friend_id: params[:id], status: true)
     @friendship.save
     @friendship2 = Friendship.find([params[:id].to_i, current_user.id])
