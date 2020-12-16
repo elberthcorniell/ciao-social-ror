@@ -34,3 +34,16 @@ RSpec.feature 'Forms field for password', type: :feature do
     end
   end
 end
+
+RSpec.feature 'Forms field for password', type: :feature do
+  context 'does not have text' do
+    scenario 'should not have the succesfull sign in' do
+      visit new_user_session_path
+      within('form') do
+        fill_in 'Password', with: '123456'
+      end
+      click_button 'Log in'
+      expect(page).to_not have_content 'Signed in successfully.'
+    end
+  end
+end

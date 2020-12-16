@@ -46,6 +46,4 @@ module ApplicationHelper
     end
     out.html_safe
   end
-
-  
 end
