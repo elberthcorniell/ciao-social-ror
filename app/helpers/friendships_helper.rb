@@ -28,8 +28,8 @@ module FriendshipsHelper
             out << "<li class=\"for-btn\">
                 <strong>#{f.user.name}</strong>
                 <div>
-                    #{link_to("Accept", friendship_url(id: f.id), method: :patch, class: "btn")}
-                    #{link_to("Decline", friendship_url(id: f.id), method: :delete, class: "btn decline")}
+                    #{link_to("Accept", friendship_url(id: f.user.id), method: :patch, class: "btn")}
+                    #{link_to("Decline", friendship_url(id: f.user.id), method: :delete, class: "btn decline")}
                 </div>
             </li>"
         end
