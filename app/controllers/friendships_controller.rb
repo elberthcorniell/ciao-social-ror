@@ -7,24 +7,22 @@ class FriendshipsController < ApplicationController
   end
 
   def create
-    @friendship = current_user.friendships.build(friend_id: params[:friend_id], status: true)
-    @friendship2 = User.find(params[:friend_id]).friendships.build(friend_id: current_user.id)
+    @friendship = current_user.friendships.build(friend_id: params[:friend_id])
     @friendship.save
-    @friendship2.save
     redirect_to user_url(id: params[:friend_id])
   end
 
-  def update
-    @friendship = Friendship.find([current_user.id, params[:id].to_i])
-    @friendship.update(status: true)
+  def update    
+    @friendship = current_user.friendships.build(friend_id: params[:id], status: true)
+    @friendship.save
+    @friendship2 = Friendship.find([params[:id].to_i, current_user.id])
+    @friendship2.update(status: true)
     redirect_to friendships_path
   end
 
   def destroy
     @friendship = Friendship.find([params[:id].to_i, current_user.id])
-    @friendship2 = Friendship.find([current_user.id, params[:id].to_i])
     @friendship.destroy
-    @friendship2.destroy
     redirect_to friendships_path
   end
 end
