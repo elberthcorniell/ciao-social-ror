@@ -13,3 +13,48 @@
  *= require_tree .
  *= require_self
  */
+
+nav {
+    white-space: nowrap;
+}
+
+nav a {
+    width: fit-content;
+    margin: 0 10px;
+}
+
+ul {
+    text-align: left;
+    padding: 0;
+    width: 100%;
+}
+
+li {
+    padding: 10px 0;
+}
+
+li.for-btn {
+    display: flex;
+    justify-content: space-between;
+}
+
+li.for-btn > strong {
+    margin-right: 30px;
+}
+
+.btn {
+    background-color: purple;
+    padding: 5px 15px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+.btn.decline {
+    background-color: #a1a1a1;
+}
+
+.space-between {
+    display: flex;
+    justify-content: space-between;
+}
