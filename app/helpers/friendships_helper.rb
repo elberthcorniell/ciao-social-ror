@@ -17,7 +17,7 @@ module FriendshipsHelper
         out = ''
         @friends.each do |f|
             puts f
-            out << "<li>#{f.user.name} #{f.status ? '': ', pending'}<li>"
+            out << "<li>#{f.friend.name} #{(f.status && current_user.friend?(f.friend_id)) ? '': ', pending'}<li>"
         end
         out.html_safe
     end
@@ -26,10 +26,10 @@ module FriendshipsHelper
         out = ''
         @requests.each do |f|
             out << "<li class=\"for-btn\">
-                <strong>#{f.user.name}</strong>
+                <strong>#{f.friend.name}</strong>
                 <div>
-                    #{link_to("Accept", friendship_url(id: f.user.id), method: :patch, class: "btn")}
-                    #{link_to("Decline", friendship_url(id: f.user.id), method: :delete, class: "btn decline")}
+                    #{link_to("Accept", friendship_url(id: f.friend.id), method: :patch, class: "btn")}
+                    #{link_to("Decline", friendship_url(id: f.friend.id), method: :delete, class: "btn decline")}
                 </div>
             </li>"
         end
