@@ -13,7 +13,7 @@
 
 ## Live Demo
 
-[Heroku Live Demo](https://ciao-social-ror.herokuapp.com/)
+[Live Demo on Heroku](https://ciao-social-ror.herokuapp.com)
 
 ## Getting Started
 
