@@ -13,13 +13,15 @@ class FriendshipsController < ApplicationController
   end
 
   def update
-    @friendship = Friendship.find(params[:id])
-    @friendship.update(status: true)
+    @friendship = current_user.friendships.build(friend_id: params[:id], status: true)
+    @friendship.save
+    @friendship2 = Friendship.find([params[:id].to_i, current_user.id])
+    @friendship2.update(status: true)
     redirect_to friendships_path
   end
 
   def destroy
-    @friendship = Friendship.find(params[:id])
+    @friendship = Friendship.find([params[:id].to_i, current_user.id])
     @friendship.destroy
     redirect_to friendships_path
   end

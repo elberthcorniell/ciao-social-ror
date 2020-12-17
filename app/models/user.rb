@@ -10,27 +10,33 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :friendships
-  has_many :inverted_friendships, class_name: 'Friendship', foreign_key: 'friend_id'
 
-  def friends
-    friend = Friendship.select("(CASE WHEN user_id = #{self[:id]} THEN friend_id ELSE user_id END) AS user_id, status")
-    friend.where(['(user_id = ? OR friend_id = ?)', self[:id], self[:id]])
-  end
+  has_many :confirmed_friendships, -> { where status: true }, class_name: "Friendship"
+  has_many :friends, through: :confirmed_friendships
+
+  # pending_friends
+  has_many :pending_friendships, -> { where status: nil }, class_name: "Friendship", foreign_key: "user_id"
+  has_many :pending_friends, through: :pending_friendships, source: :friend
+
+  #friend_requests
+  has_many :inverted_friendships, -> { where status: nil }, class_name: "Friendship", foreign_key: "friend_id"
+  has_many :requests, through: :inverted_friendships, source: :user
 
   def friends_without_status
-    friend = Friendship.select("(CASE WHEN user_id = #{self[:id]} THEN friend_id ELSE user_id END) AS user_id")
-    friend.where(['(user_id = ? OR friend_id = ?)', self[:id], self[:id]])
+    self.friends.select(:friend_id)
   end
 
-  def requests
-    Friendship.where(['friend_id = ? AND status IS null', self[:id]])
+  def request?(user_id)
+    friend = self.requests.where("id = #{user_id}")
+    return false if friend.empty?
+    true
   end
 
   def friend?(user_id)
-    friend = Friendship.select(:status).where("friend_id = #{user_id} AND user_id = #{self[:id]}")
-    puts "#{friend} klk"
-    return false if friend.empty?
-
-    friend.first.status
+    friend = self.pending_friends.where("id = #{user_id}")
+    return nil if !friend.empty?
+    friend = self.friends.where("id = #{user_id}")
+    return true if !friend.empty?
+    false
   end
 end

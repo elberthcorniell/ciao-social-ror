@@ -16,7 +16,7 @@ module ApplicationHelper
     end
   end
 
-  def render_sign_in 
+  def render_sign_in
     out = ''
     if current_user
       out << link_to(current_user.name, user_path(id: current_user.id))
@@ -46,7 +46,4 @@ module ApplicationHelper
     end
     out.html_safe
   end
-
-  
-
 end
