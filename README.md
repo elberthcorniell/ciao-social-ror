@@ -63,6 +63,22 @@ Open `http://localhost:3000/` in your browser.
 
 ### Run tests
 
+For testing please escute the next steps:
+
+- Execute the following code on the terminal to get the Gems needed:
+
+```
+    bundle install
+```
+
+- Make sure to have the testing database running:
+
+```
+    rails db:create db:migrate RAILS_ENV=test
+```
+
+- Run the test with the following command:
+
 ```
     rpsec --format documentation
 ```
@@ -75,7 +91,17 @@ TBA
 
 ## Authors
 
-TBA
+👤 **Elbert Corniel**
+
+- GitHub: [@elberthcorniell](https://github.com/elberthcorniell)
+- Twitter: [@elberthcorniell](https://twitter.com/elberthcorniell)
+- LinkedIn: [Elbert Corniell](https://www.linkedin.com/in/elbert-corniell-989183159/)
+
+👤 **Devkc**
+
+- Github: [@cvilla714](https://github.com/cvilla714)
+- Twitter: [@kckeyti](https://twitter.com/kckeyti)
+- LinkedIn: [Cosmel Villalobos](https://www.linkedin.com/in/cosvilla/)
 
 ## 🤝 Contributing
 
@@ -94,4 +120,3 @@ TBA
 ## 📝 License
 
 TBA
-
