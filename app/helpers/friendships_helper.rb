@@ -20,7 +20,7 @@ module FriendshipsHelper
     out = ''
     @friends.each do |f|
       puts f
-      out << "<li>#{f.friend.name} #{f.status && current_user.friend?(f.friend_id) ? '' : ', pending'}<li>"
+      out << "<li>#{f.name} #{current_user.friend?(f.id) == nil ? ', pending' : ''}<li>"
     end
     out.html_safe
   end
@@ -38,8 +38,8 @@ module FriendshipsHelper
     out = ''
     @requests.each do |f|
       out << "<li class=\"for-btn\">
-                <strong>#{f.user.name}</strong>
-                #{accept_decline(f.user.id)}
+                <strong>#{f.name}</strong>
+                #{accept_decline(f.id)}
             </li>"
     end
     out.html_safe
