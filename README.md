@@ -6,15 +6,14 @@
 
 <!-- otro banner: https://www.freepik.es/vector-gratis/grupo-personas-socializando-varios-idiomas_6296241.htm -->
 
-## Built With
+## Built With 
 
 - Ruby v2.7.0
 - Ruby on Rails v5.2.4
 
 ## Live Demo
 
-TBA
-
+[Heroku Live Demo](https://ciao-social-ror.herokuapp.com/)
 
 ## Getting Started
 
