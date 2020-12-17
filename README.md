@@ -13,8 +13,7 @@
 
 ## Live Demo
 
-TBA
-
+[Live Demo on Heroku](https://ciao-social-ror.herokuapp.com)
 
 ## Getting Started
 
